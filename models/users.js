@@ -9,7 +9,6 @@ const userSchema = new Schema({
 });
 
 userSchema.pre("save", (next) => {
-  console.log("pre hook", this);
   if (this.sites.length === 0) {
     this.site.push(new Site({}));
   }

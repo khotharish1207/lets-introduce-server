@@ -66,29 +66,7 @@ router.patch("/update/:id", getUserMiddleware, async (req, res) => {
   const { id } = req.params;
   try {
     const { images, ...rest } = req.body;
-    // const img = images.map(({ url, ...rest }) => {
-    //   console.log(rest.name, typeof url);
-    //   if (url) {
-    //     const [imagePrefix, base64String] = url.split(",");
-    //     return {
-    //       ...rest,
-    //       url: {
-    //         image: base64String,
-    //         imagePrefix,
-    //       },
-    //     };
-    //   }
 
-    //   return {
-    //     ...rest,
-    //     url: {
-    //       image: "",
-    //       imagePrefix: "",
-    //     },
-    //   };
-    // });
-
-    console.log(images);
     await dbModel.findByIdAndUpdate(id, { ...rest, images });
     res.status(200).json({ message: "updated successfully" });
   } catch (error) {

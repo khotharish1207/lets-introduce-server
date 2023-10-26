@@ -90,9 +90,6 @@ dbModelSchema.options.toJSON = {
   },
 };
 
-dbModelSchema.pre("save", () => {
-  console.log(this);
-});
 
 const dbModel = mongoose.model("sites", dbModelSchema);
 
