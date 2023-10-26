@@ -6,7 +6,6 @@ const utils = require("../util/serverUtil");
 
 const router = express.Router();
 
-
 /**
  *
  * @param {*} req
@@ -54,7 +53,7 @@ router.post("/create-new", getUserMiddleware, async (req, res) => {
       $push: { sites: _id },
     });
     console.log("user", user);
-    res.status(200).json({ message: "cretaed successfully" });
+    res.status(200).json({ message: "cretaed successfully", id: _id });
   } catch (error) {
     res.status(400).json({ message: error.message });
   }
