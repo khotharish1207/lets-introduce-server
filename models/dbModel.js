@@ -20,6 +20,7 @@ const pageDesignSchema = new Schema({
   cardBg: { type: String, default: `#fff` },
   fontLink: { type: String, default: "" },
   fontCss: { type: String, default: "" },
+  theme: { type: String, default: "theme1" },
 });
 
 const imageSchema = new Schema({
@@ -89,7 +90,6 @@ dbModelSchema.options.toJSON = {
     return ret;
   },
 };
-
 
 const dbModel = mongoose.model("sites", dbModelSchema);
 
